@@ -1,23 +1,37 @@
 import random
 import string
-pwlength = int(input("Enter required length of password(minimum 4):\n"))
-if pwlength<4:
-    print("Password length needs to be atleast 4")
+
+pwlength = int(input("Enter required length of password (minimum 4): "))
+
+if pwlength < 4:
+    print("Password length needs to be at least 4")
+
 else:
-    pw=[
-        random.choice(string.ascii_lowercase),
-        random.choice(string.ascii_uppercase),
-        random.choice(string.digits),
-        random.choice(string.punctuation)
-    ]
-    
-    left = pwlength - 4
+    opt = input("Do you want to include numbers? (Y/N): ")
+    opt2 = input("Do you want to include symbols? (Y/N): ")
+    characters = string.ascii_letters
 
-    all_charac = (string.ascii_letters + string.digits + string.punctuation)
+    if opt == "Y" or opt == "y":
+        characters += string.digits
 
-    for x in range(left):
-        pw.append(random.choice(all_charac))
+    if opt2 == "Y" or opt == "y":
+        characters += string.punctuation
 
-    random.shuffle(pw)
-passw = "".join(pw)
-print("Generated password: ","".join(pw))
+    password = []
+
+    # Ensure at least one lowercase and one uppercase
+    password.append(random.choice(string.ascii_lowercase))
+    password.append(random.choice(string.ascii_uppercase))
+
+    if opt == "Y" or opt == "y":
+        password.append(random.choice(string.digits))
+
+    if opt2 == "Y" or opt2 == "y":
+        password.append(random.choice(string.punctuation))
+
+    while len(password) < pwlength:
+        password.append(random.choice(characters))
+
+    random.shuffle(password)
+
+    print("Generated password:", "".join(password))
