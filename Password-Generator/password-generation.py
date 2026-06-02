@@ -18,8 +18,6 @@ else:
         characters += string.punctuation
 
     password = []
-
-    # Ensure at least one lowercase and one uppercase
     password.append(random.choice(string.ascii_lowercase))
     password.append(random.choice(string.ascii_uppercase))
 
