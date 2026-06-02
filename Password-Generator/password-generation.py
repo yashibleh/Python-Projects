@@ -33,3 +33,4 @@ else:
     random.shuffle(pw)
 
     print("Generated password:", "".join(pw))
+    print(check_strength(pw))
