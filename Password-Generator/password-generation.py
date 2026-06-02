@@ -1,6 +1,6 @@
 import random
 import string
-
+from strength_checker import check_strength
 pwlength = int(input("Enter required length of password (minimum 4): "))
 
 if pwlength < 4:
