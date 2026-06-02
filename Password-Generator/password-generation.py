@@ -17,19 +17,19 @@ else:
     if opt2 == "Y" or opt == "y":
         characters += string.punctuation
 
-    password = []
-    password.append(random.choice(string.ascii_lowercase))
-    password.append(random.choice(string.ascii_uppercase))
+    pw = []
+    pw.append(random.choice(string.ascii_lowercase))
+    pw.append(random.choice(string.ascii_uppercase))
 
     if opt == "Y" or opt == "y":
-        password.append(random.choice(string.digits))
+        pw.append(random.choice(string.digits))
 
     if opt2 == "Y" or opt2 == "y":
-        password.append(random.choice(string.punctuation))
+        pw.append(random.choice(string.punctuation))
 
-    while len(password) < pwlength:
-        password.append(random.choice(characters))
+    while len(pw) < pwlength:
+        pw.append(random.choice(characters))
 
-    random.shuffle(password)
+    random.shuffle(pw)
 
-    print("Generated password:", "".join(password))
+    print("Generated password:", "".join(pw))
